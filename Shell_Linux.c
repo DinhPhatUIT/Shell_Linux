@@ -215,13 +215,14 @@ int main()
                 while (token != NULL && cmd_count < MAX_COMMAND)
                 {
                     // xóa khoảng trắng để nhận diện lệnh
-                    while (*token == ' ' || *token == '\t')
+                    while (*token == ' ' || *token == '\t' || *token == '(' || *token == ')' )
                     {
                         token++;
                     }
 
                     int length = strlen(token);
-                    while (length > 0 && (token[length - 1] == ' ' || token[length - 1] == '\t'))
+                    while (length > 0 && (token[length - 1] == ' ' || token[length - 1] == '\t' 
+                        || token[length - 1] == '(' || token[length - 1] == ')' ) )
                     {
                         token[length - 1] = '\0';
                         length--;
